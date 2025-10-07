@@ -1,16 +1,89 @@
-# React + Vite
+# 🎬 WatchIt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **WatchIt** is a movie discovery web app built with **React** and **React Router**.
+> It lets users explore movies, view details, and stay updated with the latest cinema trends — all in a clean, responsive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+✅ **Browse Movies** – Search and explore a wide range of movies.
+✅ **Dynamic Routing** – Each movie opens a unique details page using React Router.
+✅ **Search Functionality** – Instantly find your favorite films by title.
+✅ **Loader Data API** – Efficient data fetching using `useLoaderData` and route loaders.
+✅ **Responsive UI** – Works perfectly across desktop and mobile.
+✅ **Reusable Components** – Modular code using functional components and hooks.
+✅ **Contact Form** – A functional form powered by React Router’s `<Form>` and `action` handler.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Tool                   | Purpose                          |
+| ---------------------- | -------------------------------- |
+| ⚛️ **React**           | Frontend framework               |
+| 🧭 **React Router v6** | Routing & data loading           |
+| 🎨 **CSS / Flexbox**   | Styling and layout               |
+| 🌐 **Fetch API**       | Data fetching from IMDB API      |
+| ⚡ **Vite**             | Lightning-fast bundler for React |
+
+---
+
+## 📦 Installation & Setup
+
+Clone the repository:
+
+```bash
+git clone https://github.com/sumo-07/WatchIt.git
+cd WatchIt
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open in browser:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🌍 Folder Structure
+
+```
+WatchIt/
+│
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── pages/             # Page components (Home, About, Movie, Contact)
+│   ├── api/               # API and data loader functions
+│   ├── App.jsx            # Main app entry
+│   ├── main.jsx           # Root render and router setup
+│
+├── public/                # Static assets
+├── vite.config.js         # Vite configuration
+└── package.json
+```
+
+
+
+## 🧠 Concepts Used
+
+* React Hooks: `useState`, `useEffect`, `useRef`, `useReducer`, `useCallback`, `useMemo`
+* React Router: `createBrowserRouter`, `useLoaderData`, `NavLink`, `Form`, `action`
+* Debouncing for optimized search input
+* Component-based architecture
+
+
+
+

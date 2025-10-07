@@ -1,0 +1,102 @@
+/* -- CSS Variables for easy theme management -- */
+:root {
+    --card-bg: #1e1e1e;
+    --card-text-primary: #ffffff;
+    --card-text-secondary: #aaaaaa;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --card-border-radius: 12px;
+    --primary-color-card: #e50914; /* Netflix-like red */
+}
+
+/* -- Main Card Styling -- */
+.movie-card {
+    list-style: none; /* Removes bullet point from the <li> */
+    width: 260px;
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+
+    /* 👇 ADD THIS LINE 👇 */
+    margin: 20px 0 20px 15px; 
+}
+
+/* -- Hover Effect for the Card -- */
+.movie-card:hover {
+    transform: translateY(-10px); /* Lifts the card up */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* -- Poster Image Container -- */
+.card-poster-container {
+    width: 100%;
+    height: 380px; /* Taller poster area */
+    overflow: hidden;
+}
+
+.card-poster-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents image distortion */
+    transition: transform 0.4s ease;
+}
+
+.movie-card:hover .card-poster-container img {
+    transform: scale(1.1); /* Zoom effect on the poster */
+}
+
+/* -- Text Content Styling -- */
+.card-content-container {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--card-text-primary);
+    margin: 0 0 5px 0;
+    /* Prevents long titles from breaking the layout */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-details {
+    font-size: 0.9rem;
+    color: var(--card-text-secondary);
+    margin: 0.25rem 0 0;
+}
+
+/* -- "Watch Now" Button Styling & Hover Effect -- */
+.watch-now-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    /* Initially hidden and positioned slightly down */
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+    
+    padding: 10px 25px;
+    background-color: var(--primary-color-card);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+/* On card hover, the button fades in and slides up */
+.movie-card:hover .watch-now-btn {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.watch-now-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+    background-color: #ff0a16;
+}

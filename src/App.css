@@ -1,0 +1,943 @@
+/* --- General Styling & Variables --- */
+:root {
+    --primary-color: #007bff;
+    /* A nice blue */
+    --dark-color: #343a40;
+    --light-color: #f8f9fa;
+    --text-color: #333;
+    --header-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Basic body and link resets */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* Links will inherit color from their parent */
+}
+
+/* Utility class for centering content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- Header Section --- */
+.section-navbar {
+    width: 100%;
+    box-shadow: var(--header-shadow);
+    background-color: #fff;
+}
+
+/* --- Top Bar Styling ("Learning", Sign in/up) --- */
+.top_txt {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 0.5rem 0;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head_txt p {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.signin_up a {
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.signin_up a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Main Navigation Bar Styling (Logo & Links) --- */
+.section-navbar>.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Brand/Logo */
+.navbar-brand p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Navigation Links List */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    /* Creates space between list items */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    position: relative;
+    /* Needed for the underline effect */
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Underline effect on hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Style for React Router's active NavLink */
+/* When a NavLink is active, it gets the 'active' class automatically */
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+.active-link {
+    color: red;
+}
+
+/* Footer */
+/* --- Google Font Import --- */
+
+/* --- Root Variables for Footer --- */
+:root {
+    --footer-bg: #24262b;
+    --footer-text: #bbbbbb;
+    --footer-heading: #ffffff;
+    --footer-link-hover: #ffffff;
+    --primary-color-footer: #6c63ff;
+}
+
+/* --- General Footer Styling --- */
+.footer-section {
+    background-color: var(--footer-bg);
+    padding: 70px 0;
+    color: var(--footer-text);
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-section .container {
+    max-width: 1170px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* --- Column Styling --- */
+.footer-column {
+    width: calc(25% - 20px);
+    padding: 0 15px;
+}
+
+.footer-column h3,
+.footer-column h4 {
+    font-size: 18px;
+    color: var(--footer-heading);
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-column h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: var(--primary-color-footer);
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-column.about-us {
+    width: calc(40% - 20px);
+}
+
+.footer-column.subscribe {
+    width: calc(35% - 20px);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: var(--footer-text);
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: var(--footer-link-hover);
+    padding-left: 8px;
+}
+
+/* --- Subscribe Form --- */
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+}
+
+.subscribe-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    background-color: #333;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--primary-color-footer);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #574feb;
+}
+
+/* --- Footer Bottom Bar --- */
+.footer-bottom {
+    border-top: 1px solid #444;
+    margin-top: 50px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.copyright {
+    font-size: 14px;
+}
+
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--footer-bg);
+    background-color: #ffffff;
+    transform: translateY(-5px);
+}
+
+/* --- Responsive Design --- */
+@media(max-width: 991px) {
+    .footer-column {
+        width: calc(50% - 20px);
+    }
+
+    .footer-column.about-us,
+    .footer-column.subscribe {
+        width: calc(50% - 20px);
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-column {
+        width: 100%;
+        padding: 0;
+    }
+
+    .footer-column.about-us,
+    .footer-column.subscribe {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+
+
+
+/* Error Page */
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #6c63ff;
+    /* A modern, friendly purple */
+    --primary-hover-color: #574feb;
+    --dark-text: #333;
+    --light-text: #777;
+    --page-bg: #f9f9f9;
+    --font-family: 'Poppins', sans-serif;
+    /* Add this font from Google Fonts for a better look */
+}
+
+/* --- Error Section Layout --- */
+.error-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    /* Fills most of the vertical screen space */
+    font-family: var(--font-family);
+    background-color: var(--page-bg);
+    padding: 2rem;
+}
+
+.error-text {
+    display: flex;
+    flex-direction: column;
+    /* Stacks items vertically */
+    align-items: center;
+    /* Centers items horizontally */
+    text-align: center;
+    max-width: 500px;
+    /* Prevents content from being too wide */
+}
+
+/* --- Image Styling --- */
+.error-text figure {
+    margin: 0;
+    /* Removes default browser margin */
+}
+
+.error-text img {
+    max-width: 100%;
+    height: auto;
+    /* Ensures the image scales properly */
+    margin-bottom: 2rem;
+}
+
+/* --- Text Styling --- */
+.p-a {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin: 0;
+}
+
+.p-b {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* --- Button Styling --- */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    /* Creates a pill-shaped button */
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-3px);
+    /* Lifts the button slightly on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Cardssss */
+/* --- Movie Card Styling --- */
+
+/* By defining variables here, they are "scoped" to the card 
+  and won't conflict with your global :root variables.
+*/
+.hero-conatiner {
+    --card-primary-color: #db0000;
+    /* A vibrant red, perfect for a "Watch Now" button */
+    --card-primary-hover: #ff0a16;
+    --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    --card-border-radius: 8px;
+}
+
+/* Main Card Wrapper */
+.hero-conatiner {
+    list-style: none;
+    /* Removes bullet point from the li element */
+    width: 240px;
+    height: 360px;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    /* Clips content to the rounded corners */
+    position: relative;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Enlarge the card on hover */
+.hero-conatiner:hover {
+    transform: scale(1.05);
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Movie Poster Styling */
+.poster-container {
+    width: 100%;
+    height: 100%;
+}
+
+.poster-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures image covers the area without stretching */
+    display: block;
+}
+
+/* Overlay Container for Button */
+.ticket-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Black gradient from bottom to top */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 15%, transparent 100%);
+
+    /* Initially hidden */
+    opacity: 0;
+
+    /* Flexbox to center the content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 0.3s ease;
+}
+
+/* Fade in the overlay on hover */
+.hero-conatiner:hover .ticket-container {
+    opacity: 1;
+}
+
+/* "Watch Now" Button Styling */
+.tickey-buy-btn {
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--card-primary-color);
+    border: none;
+    border-radius: 50px;
+    /* Pill-shaped button */
+    cursor: pointer;
+
+    /* Animation properties */
+    transform: translateY(20px);
+    /* Start slightly lower */
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+    /* Delay the transition slightly */
+}
+
+/* Animate the button into view on hover */
+.hero-conatiner:hover .tickey-buy-btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.tickey-buy-btn:hover {
+    background-color: var(--card-primary-hover);
+    /* The transform from the parent hover will be maintained, 
+     but we can add a subtle scale effect just for the button */
+    transform: scale(1.05);
+}
+
+/* --- Movie List Container Styling --- */
+.movie-list {
+    /* Core Flexbox properties */
+    display: flex;
+    /* This is the magic property that enables flex layout */
+    flex-wrap: wrap;
+    /* Allows cards to wrap to the next line on smaller screens */
+    justify-content: center;
+    /* Centers the cards horizontally */
+
+    /* Spacing */
+    gap: 2rem;
+    /* The modern way to add space between cards */
+    padding: 2rem 0;
+    /* Adds some space above and below the grid */
+
+    /* Reset default list styling */
+    list-style: none;
+    margin: 0;
+}
+
+/* Search css */
+/* Container for the search bar for centering and spacing */
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* Form element styles */
+.search-form {
+    display: flex; /* Aligns input and button side-by-side */
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 50px; /* Fully rounded corners */
+    overflow: hidden; /* Ensures children conform to the rounded corners */
+}
+
+/* Input field styles */
+.search-input {
+    border: none;
+    outline: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 100%; /* Takes up remaining space */
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+/* Button styles */
+.search-button {
+    border: none;
+    outline: none;
+    background-color: #4d48a6; /* A nice blue color */
+    color: white;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for the button */
+.search-button:hover {
+    background-color: #0056b3; /* A darker shade of blue on hover */
+}
+
+
+
+
+/* --- Loading Section Container --- */
+.loader-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    /* Fills most of the vertical screen height */
+    width: 100%;
+}
+
+/* --- The Spinner --- */
+.loader {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 8px solid #f3f3f3;
+    /* Light grey circle */
+    border-top: 8px solid #3498db;
+    /* Blue for the spinning part */
+    animation: spin 1s linear infinite;
+    /* Apply the animation */
+}
+
+/* --- Keyframe Animation --- */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        /* Starts at 0 degrees */
+    }
+
+    100% {
+        transform: rotate(360deg);
+        /* Ends at a full 360-degree rotation */
+    }
+}
+
+
+
+
+
+/* --- Contact Form Styles --- */
+
+/* By defining variables inside .card-container, they won't conflict with your global :root variables. */
+.card-container {
+    --form-primary-color: #e50914;
+    --form-primary-hover: #f40612;
+    --form-card-bg: #2d2d2d;
+    --form-text-color: #ffffff;
+    --form-label-color: #a0a0a0;
+    --form-border-color: #444;
+    --form-border-focus: var(--form-primary-color);
+    --form-input-bg: #333;
+}
+
+/* This targets the container specifically when it holds the contact form card. */
+.maincard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    background-color: #141414;
+    font-family: 'Poppins', sans-serif;
+    /* Recommended: Add Poppins from Google Fonts */
+}
+
+/* --- Contact Form Card --- */
+.card-container {
+    background-color: var(--form-card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    color: var(--form-text-color);
+}
+
+.card-container h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--form-text-color);
+}
+
+/* --- Form Element Styling --- */
+.card-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Creates space between form elements */
+}
+
+.card-container label {
+    font-size: 0.9rem;
+    color: var(--form-label-color);
+    margin-bottom: -1rem;
+    /* Pulls label closer to its input */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-container input,
+.card-container textarea {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--form-input-bg);
+    border: 1px solid var(--form-border-color);
+    border-radius: 6px;
+    color: var(--form-text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-container input:focus,
+.card-container textarea:focus {
+    outline: none;
+    border-color: var(--form-border-focus);
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3);
+    /* Adds a glow effect on focus */
+}
+
+.card-container textarea {
+    resize: vertical;
+    /* Allows user to resize height but not width */
+    min-height: 120px;
+}
+
+/* --- Submit Button Styling --- */
+.card-container button[type="submit"] {
+    padding: 15px;
+    background-color: var(--form-primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.card-container button[type="submit"]:hover {
+    background-color: var(--form-primary-hover);
+    transform: translateY(-2px);
+    /* Lifts the button slightly */
+}
+
+
+/* --- Hero Section Styling --- */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    /* Fills the viewport height */
+    color: #ffffff;
+    text-align: center;
+    padding: 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    /* Recommended font */
+
+    /* Background Image and Overlay */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://static.vecteezy.com/system/resources/previews/026/992/049/non_2x/red-theatre-curtains-free-photo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    /* Prevents text from becoming too wide */
+}
+
+.hero-eyebrow {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #adb5bd;
+    /* A subtle, light gray */
+    margin-bottom: 1rem;
+}
+
+.hero-heading {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    /* Responsive font size */
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subheading {
+    font-size: 1.1rem;
+    color: #ced4da;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    /* Centers the paragraph */
+    line-height: 1.6;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: #c00;
+    /* A strong, deep red */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: #e50914;
+    /* A brighter red on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* About page styling */
+.about-page {
+    background-color: #141414;
+    /* Dark background */
+    color: #fff;
+    padding: 5rem 1rem;
+    font-family: 'Poppins', sans-serif;
+    min-height: 90vh;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
+}
+
+.about-content {
+    flex: 1;
+    /* Takes up available space */
+    min-width: 300px;
+    /* Prevents content from getting too squished */
+}
+
+.about-image-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.about-eyebrow {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #e50914;
+    /* Accent red color */
+    margin-bottom: 1rem;
+}
+
+.about-heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: #d1d1d1;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.features-list li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.features-list .icon {
+    color: #e50914;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.about-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #e50914;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+    background-color: #f40612;
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column-reverse;
+        /* Stack image on top on mobile */
+        text-align: center;
+    }
+
+    .features-list li {
+        justify-content: center;
+    }
+}

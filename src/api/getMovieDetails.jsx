@@ -10,7 +10,7 @@ export const getMovieDetails= async({params, request})=>{
     try{
         // const res= await fetch(`https://imdb.iamidiotareyoutoo.com/search?q=${query}`);
 
-        const res= await fetch(`http://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_API_KEY}`);
+        const res= await fetch(`https://www.omdbapi.com/?i=${id}&apikey=${import.meta.env.VITE_API_KEY}`);
 
         const data= await res.json();
         // console.log("newData= ",data);

@@ -5,7 +5,7 @@ export const getMoviesData = async ({request}) => {
     try {
         // const res= await fetch(`http://www.omdbapi.com/?i=tt0145487&apikey=${import.meta.env.VITE_API_KEY}`)
 
-        const res= await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${import.meta.env.VITE_API_KEY}`)
+        const res= await fetch(`https://www.omdbapi.com/?s=${query}&apikey=${import.meta.env.VITE_API_KEY}`)
 
 
         // const res = await fetch(`https://imdb.iamidiotareyoutoo.com/search?q=${query}`);

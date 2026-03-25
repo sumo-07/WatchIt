@@ -1,5 +1,5 @@
 export const Loading= ()=>{
-    <div className="container loader-section">
+    <div className="loader-container">
         <div className="loader"></div>
     </div>
 };

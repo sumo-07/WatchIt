@@ -12,7 +12,6 @@ export const Movie = () => {
     const [moviesData, setMoviesData]= useState(initialData);
     console.log("fetching= ",moviesData); // yeh hr key press pe re render hora hai. jisse yeh baar baar console pr print hora hai
     // console.log("query= ",query.current?.value); // return empty string if the user have not typed anything
-
     const [loading, setLoading]= useState(false);
     
     const handleSubmit =  async(e)=>{

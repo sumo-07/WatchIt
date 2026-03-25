@@ -6,14 +6,6 @@ export const MovieDetails = () => {
     const movieData = useLoaderData();
     console.log("movie= ", movieData);
 
-    // ✅ Loader
-    if (!movieData) {
-        return (
-            <div className="loader-container">
-                <div className="loader"></div>
-            </div>
-        );
-    }
 
     return (
         <div className="details-wrapper">

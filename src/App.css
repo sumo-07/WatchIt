@@ -929,6 +929,21 @@ a {
     transform: translateY(-3px);
 }
 
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #ddd;
+    border-top: 6px solid #ff4c60;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .about-container {

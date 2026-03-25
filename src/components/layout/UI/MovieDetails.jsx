@@ -1,32 +1,65 @@
-import { NavLink, useLoaderData, useParams } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import "./MovieDetails.css";
+
 export const MovieDetails = () => {
-    // const params= useParams();
-    // console.log("params= ",params)
 
     const movieData = useLoaderData();
-    console.log("movie= ",movieData);
+    console.log("movie= ", movieData);
 
-    // const {poster,imdbID}= movieData;
-
-
+    // ✅ Loader
+    if (!movieData) {
+        return (
+            <div className="loader-container">
+                <div className="loader"></div>
+            </div>
+        );
+    }
 
     return (
-        <>
-            <li className="movie-card">
+        <div className="details-wrapper">
+
+            <div className="movie-card">
+
+                {/* Poster */}
                 <div className="card-poster-container">
-                    <img src={movieData["#IMG_POSTER"]} alt={`Poster for ${movieData["#TITLE"]}`} />
+                    <img
+                        src={movieData.Poster !== "N/A" ? movieData.Poster : "/no-image.png"}
+                        alt={movieData.Title}
+                    />
                 </div>
+
+                {/* Content */}
                 <div className="card-content-container">
-                    <h3 className="card-title">{movieData["#TITLE"]}</h3>
-                    <p className="card-details">Year: {movieData["#YEAR"]}</p>
-                    <p className="card-details">Actors: {movieData["#ACTORS"]}</p>
-                    <p className="card-details">Rank: {movieData["#RANK"]}</p>
+
+                    <h2 className="card-title">{movieData.Title}</h2>
+
+                    <div className="info-grid">
+                        <p><strong>Year:</strong> {movieData.Year}</p>
+                        <p><strong>Genre:</strong> {movieData.Genre}</p>
+                        <p><strong>Actors:</strong> {movieData.Actors}</p>
+                        <p><strong>Director:</strong> {movieData.Director}</p>
+                        <p><strong>Rating:</strong> ⭐ {movieData.imdbRating}</p>
+                        <p><strong>Runtime:</strong> {movieData.Runtime}</p>
+                    </div>
+
+                    <p className="plot">
+                        <strong>Description:</strong> {movieData.Plot}
+                    </p>
+
                 </div>
-                <NavLink to={movieData["#IMDB_URL"]}>
-                    <button className="watch-now-btn">Watch Now</button>
+
+                {/* ✅ Hover Button */}
+                <NavLink
+                    to={`https://www.imdb.com/title/${movieData.imdbID}`}
+                    target="_blank"
+                >
+                    <button className="watch-now-btn">
+                        View on IMDb
+                    </button>
                 </NavLink>
-            </li>
-        </>
+
+            </div>
+
+        </div>
     );
 };

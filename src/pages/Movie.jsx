@@ -12,14 +12,19 @@ export const Movie = () => {
     const [moviesData, setMoviesData]= useState(initialData);
     console.log("fetching= ",moviesData); // yeh hr key press pe re render hora hai. jisse yeh baar baar console pr print hora hai
     // console.log("query= ",query.current?.value); // return empty string if the user have not typed anything
+
+    const [loading, setLoading]= useState(false);
     
     const handleSubmit =  async(e)=>{
         e.preventDefault();
         const search= query.current.value.trim() || "Avengers";
+        setLoading(true);
         const data= await getMoviesData({request: {url: `http://dummy?q=${search}` }});
         console.log("API called for search:", query.current?.value);
 
         setMoviesData(data);
+        setLoading(false);
+
         
     };
 
@@ -36,9 +41,12 @@ export const Movie = () => {
                     <button type="submit" className="search-button">Search</button> 
                 </Form>
             </div>
+
+            {loading && <div className="loader"></div>}
+
             <ul className="movie-list">
-                {moviesData && moviesData.description.map((currMovie) => {
-                    { return <Card key={currMovie["#IMDB_ID"]} currMovie={currMovie} query={query.current?.value}/> }
+                {!loading && moviesData.map((currMovie) => {
+                    { return <Card key={currMovie.imdbID} currMovie={currMovie} query={query.current?.value}/> }
                 })} 
             </ul>
         </>
